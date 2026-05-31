@@ -15,7 +15,12 @@ export const dynamic = 'force-static';
 // AuthWebView on the mobile "web" platform listens for this postMessage to
 // capture the session after a successful web signin/signup inside its iframe.
 export async function GET(request: Request) {
-  const session = await auth.api.getSession({ headers: request.headers });
+  let session;
+  try {
+    session = await auth.api.getSession({ headers: request.headers });
+  } catch {
+    session = null;
+  }
 
   const payload =
     session?.user && session?.session

@@ -13,7 +13,12 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-static';
 
 export async function GET(request: Request) {
-  const session = await auth.api.getSession({ headers: request.headers });
+  let session;
+  try {
+    session = await auth.api.getSession({ headers: request.headers });
+  } catch {
+    session = null;
+  }
 
   if (!session?.user || !session?.session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

@@ -34,4 +34,22 @@ export function generateStaticParams() {
   ];
 }
 
-export const { GET, POST } = toNextJsHandler(auth);
+let handlers: ReturnType<typeof toNextJsHandler>;
+
+export async function GET(request: Request) {
+  try {
+    if (!handlers) handlers = toNextJsHandler(auth);
+    return handlers.GET(request);
+  } catch {
+    return new Response('Auth unavailable', { status: 500 });
+  }
+}
+
+export async function POST(request: Request) {
+  try {
+    if (!handlers) handlers = toNextJsHandler(auth);
+    return handlers.POST(request);
+  } catch {
+    return new Response('Auth unavailable', { status: 500 });
+  }
+}

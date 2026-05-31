@@ -4,9 +4,14 @@ import { auth } from '@/lib/auth';
 export const dynamic = 'force-static';
 
 export async function GET(request: NextRequest) {
-  const session = await auth.api.getSession({
-    headers: request.headers,
-  });
+  let session;
+  try {
+    session = await auth.api.getSession({
+      headers: request.headers,
+    });
+  } catch {
+    session = null;
+  }
 
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
