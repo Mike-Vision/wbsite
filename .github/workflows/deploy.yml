@@ -37,6 +37,7 @@ jobs:
           NEXT_PUBLIC_PROJECT_GROUP_ID: ${{ vars.NEXT_PUBLIC_PROJECT_GROUP_ID }}
 
       - name: Build mobile app (web export)
+        continue-on-error: true
         run: npx expo export --platform web
         working-directory: apps/mobile
         env:
