@@ -36,6 +36,19 @@ jobs:
           NEXT_PUBLIC_CREATE_HOST: ${{ vars.NEXT_PUBLIC_CREATE_HOST }}
           NEXT_PUBLIC_PROJECT_GROUP_ID: ${{ vars.NEXT_PUBLIC_PROJECT_GROUP_ID }}
 
+      - name: Build mobile app (web export)
+        run: npx expo export --platform web
+        working-directory: apps/mobile
+        env:
+          EXPO_USE_FAST_RESOLVER: 1
+          EXPO_PUBLIC_APP_URL: ${{ vars.EXPO_PUBLIC_APP_URL }}
+          EXPO_PUBLIC_BASE_CREATE_USER_CONTENT_URL: ${{ vars.EXPO_PUBLIC_BASE_CREATE_USER_CONTENT_URL }}
+          EXPO_PUBLIC_BASE_URL: ${{ vars.EXPO_PUBLIC_BASE_URL }}
+          EXPO_PUBLIC_CREATE_ENV: ${{ vars.EXPO_PUBLIC_CREATE_ENV }}
+          EXPO_PUBLIC_HOST: ${{ vars.EXPO_PUBLIC_HOST }}
+          EXPO_PUBLIC_LOGS_ENDPOINT: ${{ vars.EXPO_PUBLIC_LOGS_ENDPOINT }}
+          EXPO_PUBLIC_PROJECT_GROUP_ID: ${{ vars.EXPO_PUBLIC_PROJECT_GROUP_ID }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
