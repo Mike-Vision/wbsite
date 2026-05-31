@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
     unoptimized: true,
   },
@@ -12,7 +13,6 @@ const nextConfig = {
     NEXT_PUBLIC_CREATE_HOST: process.env.NEXT_PUBLIC_CREATE_HOST,
     NEXT_PUBLIC_PROJECT_GROUP_ID: process.env.NEXT_PUBLIC_PROJECT_GROUP_ID,
   },
-  serverExternalPackages: ['@neondatabase/serverless', 'ws'],
   rewrites() {
     return [
       {

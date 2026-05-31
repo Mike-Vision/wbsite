@@ -9,6 +9,8 @@
  */
 import { auth } from '@/lib/auth';
 
+export const dynamic = 'force-static';
+
 // Renders an HTML page that posts the session token to the parent frame.
 // AuthWebView on the mobile "web" platform listens for this postMessage to
 // capture the session after a successful web signin/signup inside its iframe.

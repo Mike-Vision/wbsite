@@ -9,4 +9,29 @@
 import { auth } from "@/lib/auth";
 import { toNextJsHandler } from "better-auth/next-js";
 
+export const dynamic = 'force-static';
+
+export function generateStaticParams() {
+  return [
+    { all: ['sign-in', 'email'] },
+    { all: ['sign-up', 'email'] },
+    { all: ['sign-out'] },
+    { all: ['get-session'] },
+    { all: ['forget-password'] },
+    { all: ['reset-password'] },
+    { all: ['change-password'] },
+    { all: ['update-user'] },
+    { all: ['delete-user'] },
+    { all: ['link-social'] },
+    { all: ['list-accounts'] },
+    { all: ['callback', 'oauth2'] },
+    { all: ['error'] },
+    { all: ['revoke-sessions'] },
+    { all: ['revoke-other-sessions'] },
+    { all: ['update-email'] },
+    { all: ['change-email'] },
+    { all: ['verify-email'] },
+  ];
+}
+
 export const { GET, POST } = toNextJsHandler(auth);
