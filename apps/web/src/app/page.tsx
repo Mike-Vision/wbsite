@@ -9,6 +9,7 @@ import CodeBackground from '@/components/CodeBackground';
 import Header from '@/components/Header';
 import ProjectsSection from '@/components/ProjectsSection';
 import RickRollFinale from '@/components/RickRollFinale';
+import SplitTitle from '@/components/SplitTitle';
 
 const codeLines = [
   '// Initializing developer profile...',
@@ -188,7 +189,7 @@ export default function Home() {
               }`}
               style={headingFont}
             >
-              Mike Vision
+              <SplitTitle radius={180} strength={36}>Mike Vision</SplitTitle>
             </h1>
             <p
               className={`text-lg md:text-2xl font-light transition-colors duration-700 max-w-2xl mx-auto ${
@@ -230,7 +231,7 @@ export default function Home() {
               }`}
               style={headingFont}
             >
-              Technical <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Skills</span>
+              <SplitTitle>Technical <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Skills</span></SplitTitle>
             </h2>
           </div>
 
@@ -324,7 +325,7 @@ export default function Home() {
               }`}
               style={headingFont}
             >
-              About <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Me</span>
+              <SplitTitle>About <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Me</span></SplitTitle>
             </h2>
           </div>
 
@@ -373,7 +374,7 @@ export default function Home() {
             }`}
             style={headingFont}
           >
-            Let&apos;s <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Connect</span>
+            <SplitTitle>Let&apos;s <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Connect</span></SplitTitle>
           </h2>
           <p
             className={`text-lg mb-10 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
