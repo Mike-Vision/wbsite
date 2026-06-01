@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <link
           rel="stylesheet"
-          href="/fontawesome/releases/v6.3.0/css/pro.min.css?token=2c15cc0cc7"
+          href="https://ka-p.fontawesome.com/releases/v6.3.0/css/pro.min.css?token=2c15cc0cc7"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

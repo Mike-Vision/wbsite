@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import SplitTitle from '@/components/SplitTitle';
 import { Star, GitFork, Eye, ExternalLink, Loader2 } from 'lucide-react';
 
 interface Project {
@@ -40,7 +41,7 @@ export default function ProjectsSection({ darkMode }: ProjectsSectionProps) {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('/api/github-projects');
+        const response = await fetch('https://api.github.com/users/Mike-Vision/repos?sort=updated&per_page=12');
         if (!response.ok) {
           throw new Error(`Failed to fetch: ${response.status}`);
         }
@@ -78,7 +79,7 @@ export default function ProjectsSection({ darkMode }: ProjectsSectionProps) {
             }`}
             style={headingFont}
           >
-            My <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Projects</span>
+            <SplitTitle>My <span className={darkMode ? 'text-red-500' : 'text-red-600'}>Projects</span></SplitTitle>
           </h2>
           <p
             className={`mt-4 text-base ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}

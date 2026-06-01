@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
+import SplitTitle from '@/components/SplitTitle';
 
 interface RickRollFinaleProps {
   darkMode: boolean;
@@ -116,8 +117,7 @@ export default function RickRollFinale({ darkMode }: RickRollFinaleProps) {
             }`}
             style={headingFont}
           >
-            Keep scrolling <span className={darkMode ? 'text-red-500' : 'text-red-600'}>down</span>{' '}
-            <span className="inline-block animate-wiggle">:)</span>
+            <SplitTitle>Keep scrolling <span className={darkMode ? 'text-red-500' : 'text-red-600'}>down</span> <span className="inline-block animate-wiggle">:)</span></SplitTitle>
           </h2>
           <p
             className={`text-lg md:text-xl mb-12 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
