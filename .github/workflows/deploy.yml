@@ -32,9 +32,13 @@ jobs:
       - name: Build web app
         run: yarn workspace web build
         env:
+          NODE_ENV: production
           NEXT_PUBLIC_CREATE_BASE_URL: ${{ vars.NEXT_PUBLIC_CREATE_BASE_URL }}
           NEXT_PUBLIC_CREATE_HOST: ${{ vars.NEXT_PUBLIC_CREATE_HOST }}
           NEXT_PUBLIC_PROJECT_GROUP_ID: ${{ vars.NEXT_PUBLIC_PROJECT_GROUP_ID }}
+
+      - name: Disable Jekyll on GitHub Pages
+        run: touch apps/web/out/.nojekyll
 
       - name: Build mobile app (web export)
         continue-on-error: true
